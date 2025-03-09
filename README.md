@@ -8,6 +8,7 @@ Objectives:
 Automate the verification process for user logins.
 Ensure that each user accesses the system only from their designated device.
 Provide clear feedback on the success or failure of login attempts.
+
 Key Features:
 
 Approved Users and Devices Lists: Maintains lists of authorized users and their corresponding devices.
@@ -20,6 +21,7 @@ Benefits:
 Enhanced Security: Restricts system access to authorized users and devices.
 Automation: Eliminates the need for manual verification of user credentials.
 Clear Communication: Provides immediate feedback to users regarding their login status.
+
 Potential Challenges:
 
 Maintenance of Approved Lists: Keeping the user and device lists up-to-date as personnel and equipment change.
