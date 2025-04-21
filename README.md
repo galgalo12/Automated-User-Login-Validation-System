@@ -1,27 +1,50 @@
-This Python script automates a simple login validation process by checking:
+# Login-Authentication-with-MFA-and-Email-Notifications
 
-    Approved Usernames and Devices: It uses two parallel lists:
+This Python project is a login authentication system that integrates multi-factor authentication (MFA) using Time-based One-Time Passwords (TOTP), device verification, and email notifications. It ensures that only approved users can log in and provides real-time alerts about login attempts.
 
-    approved_users contains names of authorized users.
+    Key Features:
+    User Authentication:
 
-    approved_devices contains the corresponding approved device for each user (indexed the same).
+The script validates user login attempts by checking if the username exists in an approved users list.
 
-Login Function:
+Each user is associated with a specific device, and the device ID must match the assigned device for the login to proceed.
 
-    Validates if the entered username exists.
+    Multi-Factor Authentication (MFA):
 
-    If valid, it retrieves the corresponding device and compares it with the one the user inputs.
+MFA is implemented using TOTP, where the user is required to enter a time-sensitive one-time code sent to their email.
 
-Displays appropriate messages:
+If the code is correct, the user is granted access.
 
-    ✅ If login is successful (correct user and device).
+    Device Verification:
 
-    ❌ If login fails due to an incorrect device or unknown username.
+The script ensures that the login attempt is made from the correct device by matching the device ID with the assigned one.
 
-User Interaction:
+    Email Notifications:
 
-    Prompts the user to enter their username.
+Upon successful login, an email is sent to the user with login details (device, IP address, timestamp).
 
-    If valid, it informs them of their assigned device and prompts for the device ID.
+Failed attempts, including incorrect MFA codes and device mismatches, are logged and an email is sent to notify about the failure.
 
-    Displays the final login result.
+    Logging:
+
+The script logs all successful and failed login attempts, including any device mismatches or unauthorized username attempts, for auditing and security monitoring.
+
+    Security:
+
+Gmail's SMTP server is used to send emails securely using TLS.
+
+The Gmail password is retrieved from an environment variable, ensuring that credentials are not hardcoded in the script.
+
+    Project Requirements:
+    Python 3.x
+
+Libraries: smtplib, os, logging, socket, pyotp, email.mime.text
+
+A Gmail account for sending email notifications (requires an app-specific password for authentication).
+
+Environment variables for securely storing Gmail credentials.
+
+    Usage:
+Users can enter their username, device ID, and the MFA code sent to their email for authentication.
+
+If everything checks out, the system allows the login and sends a notification email. Any failed login attempt is logged and can trigger alerts.
