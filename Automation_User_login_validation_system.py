@@ -15,14 +15,14 @@ logging.basicConfig(filename="login_attempts.log", level=logging.INFO,  # Set up
 
 # Approved users (this is a dictionary that maps usernames to their assigned device and email)
 approved_users = {
-    "Abdirahman": ("Mac-pro", "abdifatah143@gmail.com"),
-    "Reyes": ("Windows", "abdifatah143@gmail.com"),
-    "John": ("PC", "abdifatah143@gmail.com"),
-    "Raha": ("Mac-Air", "abdifatah143@gmail.com")
+    "Abdirahman": ("Mac-pro", ""),
+    "Reyes": ("Windows", ""),
+    "John": ("PC", ""),
+    "Raha": ("Mac-Air", ")
 }
 
 # Gmail credentials (using environment variable for security)
-GMAIL_SENDER = "galgaloabdifatah@gmail.com"  # Sender's Gmail address.
+GMAIL_SENDER = ""  # Sender's Gmail address.
 GMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  # Retrieves the Gmail app password from environment variables.
 
 # Check if the Gmail password is set, if not, exit the script.
